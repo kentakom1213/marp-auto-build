@@ -23,7 +23,8 @@ marpで作成したスライドを自動でビルドし、GitHub Pagesにデプ�
 1. gitのhookを設定
 2. スライドの追加
 3. テーマの追加
-4. デプロイ
+4. 権限の追加
+5. commit & push
 
 
 ---
@@ -68,16 +69,20 @@ ${スライド名}/
 
 
 ---
-### 4. デプロイ
+### 4. 権限の追加
 
-mainブランチにコミットし、pushされるとGitHub Actionsにより自動でビルド、デプロイされます。
-デプロイ先のURLは`https://${GitHubのユーザ名}.github.io/${リポジトリ名}`です。
+リポジトリの設定画面から、
+
+`Settings > Actions > General > Workflow permissions` を `Read and write permissions` に変更します。
+
+![w:800](images/example_permission.png)
 
 
 ---
-画像のテスト
+### 5. commit & push
 
-![w:800](images/calc_graph_example.png)
+mainブランチにコミットし、pushされるとGitHub Actionsにより自動でビルド、デプロイされます。
+デプロイ先のURLは`https://${GitHubのユーザ名}.github.io/${リポジトリ名}`です。
 
 <!-- mermaid.js -->
 <script src="https://unpkg.com/mermaid@8.1.0/dist/mermaid.min.js"></script>

@@ -41,7 +41,16 @@ ${スライド名}/
 
 自作css等のカスタムテーマは、`.marp/themes`ディレクトリに格納してください。
 
-### 4. デプロイ
+### 4. 権限の追加
+
+リポジトリの設定画面から、
+
+`Settings > Actions > General > Workflow permissions` を `Read and write permissions` に変更します。
+
+![](example/images/example_permission.png)
+
+
+### 5. commit & push
 
 mainブランチにコミットし、pushされるとGitHub Actionsにより自動でビルド、デプロイされます。
 デプロイ先のURLは`https://${GitHubのユーザ名}.github.io/${リポジトリ名}`です。
