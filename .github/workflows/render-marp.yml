@@ -1,0 +1,34 @@
+name: Convert Markdown into PDF
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Convert Markdown into PDF
+        uses: KoharaKazuya/marp-cli-action@v2
+        with:
+          config-file: ./.marp/.marprc-ci.yml
+          generate-html: true
+          generate-pdf: true
+
+      - name: Save outputs
+        uses: actions/upload-artifact@v2
+        with:
+          name: output
+          path: ./output
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages
+          # ↓ 独自ドメインで公開する場合
+          # cname: example.com

@@ -1,0 +1,7 @@
+lang: ja-JP
+allowLocalFiles: true
+themeSet: ./themes
+inputDir: ../slides
+output: ../output
+pdf: true
+html: true
