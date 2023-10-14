@@ -2,7 +2,6 @@
 marp: true
 header: "example"
 theme: gaia
-class: invert
 paginate: true
 math: katex
 ---
@@ -17,14 +16,6 @@ by [kentakom1213](https://github.com/kentakom1213/)
 marpで作成したスライドを自動でビルドし、GitHub Pagesにデプロイします。
 
 - 公開先：https://kentakom1213.github.io/marp-auto-build/
-
----
-## 手順
-1. gitのhookを設定
-2. スライドの追加
-3. テーマの追加
-4. 権限の追加
-5. commit & push
 
 
 ---
@@ -46,30 +37,7 @@ git add .
 
 
 ---
-### 2. スライドの追加
-
-スライドは、`example/`ディレクトリにならって作成してください。
-
-```
-${スライド名}/
-  ├ images/
-  │  ├ image1.png
-  │  ├ image2.png
-  │  ...
-  └ slide.md
-```
-
-**注意**：`images/`の中に入っているファイル名が重複すると、`slides/images`に画像がコピーされる際に上書きされてしまうため、ファイル名は重複しないようにしてください。
-
-
----
-### 3. テーマの追加
-
-自作css等のカスタムテーマは、`.marp/themes`ディレクトリに格納してください。
-
-
----
-### 4. 権限の追加
+### 2. 権限の追加
 
 リポジトリの設定画面から、
 
@@ -79,7 +47,40 @@ ${スライド名}/
 
 
 ---
+### 3. GitHub Pagesを有効化
+
+リポジトリの設定画面から、
+
+`Settings > Pages > Build and deployment > Branch`を`gh-pages`に変更してください。
+
+![w:700](images/example_pages.png)
+
+---
+### 4. スライドの追加
+
+スライドは、`example/`ディレクトリにならって作成してください。
+
+```
+slide-name/
+  ├ images/
+  │  ├ image1.png
+  │  ├ image2.png
+  │  ...
+  └ slide.md
+```
+
+カスタムcssは、`.marp/themes`ディレクトリに格納してください。
+
+**注意**：`images/`の中に入っているファイル名は（全スライドを通じて）重複しないようにしてください。
+
+---
 ### 5. commit & push
 
 mainブランチにコミットし、pushされるとGitHub Actionsにより自動でビルド、デプロイされます。
 デプロイ先のURLは`https://${GitHubのユーザ名}.github.io/${リポジトリ名}`です。
+
+
+---
+# 完成！
+
+よいmarpライフを！

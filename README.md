@@ -22,7 +22,26 @@ git add .
 
 **注意**：`organize-md.sh`はzshで書かれているため、それ以外のシェルを使っているかたは適宜書き換えてください。
 
-### 2. スライドの追加
+
+### 2. 権限の追加
+
+リポジトリの設定画面から、
+
+`Settings > Actions > General > Workflow permissions` を `Read and write permissions` に変更します。
+
+![](example/images/example_permission.png)
+
+
+### 3. GitHub Pagesを有効化
+
+リポジトリの設定画面から、
+
+`Settings > Pages > Build and deployment > Branch`を`gh-pages`に変更してください。
+
+![w:700](example/images/example_pages.png)
+
+
+### 4. スライドの追加
 
 スライドは、`example/`ディレクトリにならって作成してください。
 
@@ -35,19 +54,9 @@ ${スライド名}/
   └ slide.md
 ```
 
-**注意**：`images/`の中に入っているファイル名が重複すると、`slides/images`に画像がコピーされる際に上書きされてしまうため、ファイル名は重複しないようにしてください。
-
-### 3. テーマの追加
+**注意**：`images/`の中に入っているファイル名が重複すると、`slides/images`に画像がコピーされる際に上書きされてしまうため、全スライドを通じてファイル名は重複しないようにしてください。
 
 自作css等のカスタムテーマは、`.marp/themes`ディレクトリに格納してください。
-
-### 4. 権限の追加
-
-リポジトリの設定画面から、
-
-`Settings > Actions > General > Workflow permissions` を `Read and write permissions` に変更します。
-
-![](example/images/example_permission.png)
 
 
 ### 5. commit & push
