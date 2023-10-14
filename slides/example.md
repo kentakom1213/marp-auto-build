@@ -78,3 +78,7 @@ mainブランチにコミットし、pushされるとGitHub Actionsにより自�
 画像のテスト
 
 ![w:800](images/calc_graph_example.png)
+
+<!-- mermaid.js -->
+<script src="https://unpkg.com/mermaid@8.1.0/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
