@@ -63,3 +63,7 @@ ${スライド名}/
 
 mainブランチにコミットし、pushされるとGitHub Actionsにより自動でビルド、デプロイされます。
 デプロイ先のURLは`https://${GitHubのユーザ名}.github.io/${リポジトリ名}`です。
+
+# 参考
+
+- [Marpでスライドを作成しよう 〜 カスタムテーマとGitHub Actionsによる自動化まで 〜](https://zenn.dev/istyle/articles/8f13b876af7e3b)
