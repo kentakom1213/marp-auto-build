@@ -22,7 +22,7 @@ do
         # mermaidのCDNを追加
         echo $MARP_CDN >> "slides/$dir.md"
         # indexに追記
-        echo "- [$dir](./$dir)" >> 'slides/index.md'
+        echo "- [$dir](./$dir) ([PDF](./$dir.pdf))" >> 'slides/index.md'
         # imagesのコピー
         for img in $(ls "$dir/images")
         do

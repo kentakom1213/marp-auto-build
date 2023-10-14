@@ -1,2 +1,2 @@
 # slides
-- [example](./example)
+- [example](./example) ([PDF](./example.pdf))
