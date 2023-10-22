@@ -4,6 +4,15 @@ marpで作成したスライドを自動でビルドし、GitHub Pagesにデプ�
 
 - 公開先：https://kentakom1213.github.io/marp-auto-build/
 
+## **with-secret-page**
+
+※このブランチでは、シークレットページ（URLがUUID化されたページ）を作成できます
+
+- リポジトリをprivateにする
+  （privateでのGitHub PagesはGitHub Proプランでのみ有効化できます）
+- シークレットにしたいスライドのディレクトリに`secret`という名前の空ファイルを置く
+
+
 ## 手順
 
 ### 1. gitのhookを設定

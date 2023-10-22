@@ -19,17 +19,29 @@ echo '# slides' > slides/index.md
 # ディレクトリのみ取り出し
 for dir in $(ls -l | grep '^d' | awk '{print $9}')
 do
-    if [[ ! $dir =~ "slides|output" ]] then
+    local tmpdir=$dir
+    if [[ `ls $dir | grep 'secret'` ]] then
+        if [[ ! `cat $dir/secret` ]] then
+            uuidgen | tr "[:upper:]" "[:lower:]" > "$dir/secret"
+        fi
+        tmpdir=`cat $dir/secret`
+        mv $dir $tmpdir
+    fi
+    if [[ ! $tmpdir =~ "slides|output" ]] then
         # markdownファイルのコピー
-        cat "$dir/slide.md" > "slides/$dir.md"
-        echo $MARP_CDN >> "slides/$dir.md"
-        # indexに追記
-        echo "- [$dir](./$dir) ([PDF](./$dir.pdf))" >> 'slides/index.md'
+        cat "$tmpdir/slide.md" > "slides/$tmpdir.md"
+        echo $MARP_CDN >> "slides/$tmpdir.md"
         # imagesのコピー
-        for img in $(ls "$dir/images")
+        for img in $(ls "$tmpdir/images")
         do
-            cp "$dir/images/$img" slides/images
-            cp "$dir/images/$img" output/images
+            cp "$tmpdir/images/$img" slides/images
+            cp "$tmpdir/images/$img" output/images
         done
+        # indexに追記
+        if [[ $dir == $tmpdir ]] then
+            echo "- [$dir](./$dir) ([PDF](./$dir.pdf))" >> 'slides/index.md'
+        else
+            mv $tmpdir $dir
+        fi
     fi
 done
